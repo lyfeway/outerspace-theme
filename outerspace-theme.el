@@ -1,4 +1,5 @@
 (spaceline-toggle-hud-off)
+(spaceline-toggle-buffer-encoding-abbrev-off)
 
 (defmacro dyn-let (varlist fn setfaces setvars)
   (list 'let (append varlist (funcall fn)) setfaces setvars))
@@ -619,7 +620,7 @@ to 'auto, tags may not be properly aligned. "
 
 ;;;;; mode-line
      `(mode-line           ((,class (:foreground ,base :background ,mode-line-bg :box (:color ,bg1 :line-width 1)))))
-     `(mode-line-buffer-id ((,class (:inherit bold :foreground ,func))))
+     `(mode-line-buffer-id ((,class (:inherit bold :foreground ,"#3E98F4"))))
      `(mode-line-inactive  ((,class (:foreground ,base :background ,mode-line-inactive-bg :box (:color ,bg1 :line-width 1)))))
 
 ;;;;; mu4e
