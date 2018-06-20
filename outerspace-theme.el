@@ -1,3 +1,5 @@
+(spaceline-toggle-hud-off)
+
 (defmacro dyn-let (varlist fn setfaces setvars)
   (list 'let (append varlist (funcall fn)) setfaces setvars))
 
@@ -49,11 +51,6 @@ to 'auto, tags may not be properly aligned. "
   :type 'boolean
   :group 'spacemacs-theme)
 
-(defun true-color-p ()
-  (or
-   (display-graphic-p)
-   (= (tty-display-color-cells) 16777216)))
-
 (defun custom-colors-override ()
   (mapcar (lambda (x) (list (car x) (cdr x)))
           spacemacs-theme-custom-colors))
@@ -66,10 +63,12 @@ to 'auto, tags may not be properly aligned. "
             (base          "#b2b2b2")
             (base-dim      "#686868")
             (bg1           "#303B47")
-            (bg2           "#ff00ff")
+            (bg2           "#3E4C5B")
             (bg3           "#100a14")
             (bg4           "#0a0814")
-            (border        "#5d4d7a")
+            (mode-line-bg  "#19222C")
+            (mode-line-inactive-bg "#384553")
+            (border        "#3F5062")
             (cblk          "#cbc1d5")
             (cblk-bg       "#2f2b33")
             (cblk-ln       "#827591")
@@ -93,7 +92,7 @@ to 'auto, tags may not be properly aligned. "
             (highlight     "#444155")
             (highlight-dim "#3b314d")
             (keyword       "#4f97d7")
-            (lnum          "#44505c")
+            (lnum          "#A1A1A1")
             (mat           "#86dc2f")
             (meta          "#9f8766")
             (str           "#2d9574")
@@ -544,7 +543,7 @@ to 'auto, tags may not be properly aligned. "
      `(ledger-occur-xact-face ((,class (:background ,bg2))))
 
 ;;;;; linum-mode
-     `(linum ((,class (:foreground ,lnum :background ,bg2 :inherit default))))
+     `(linum ((,class (:foreground ,lnum :background ,bg1 :inherit default))))
 
 ;;;;; display-line-numbers-mode (Emacs 26+)
      (when (>= emacs-major-version 26)
@@ -612,10 +611,16 @@ to 'auto, tags may not be properly aligned. "
      `(markdown-header-face-6 ((,class (:bold nil :foreground ,head2))))
      `(markdown-table-face ((,class (:foreground ,base :background ,head1-bg))))
 
+;;;;; powerline
+     `(powerline-active1 ((,class (:background ,mode-line-bg :foreground ,base))))
+     `(powerline-active2 ((,class (:background ,mode-line-bg :foreground ,base))))
+     `(powerline-inactive1 ((,class (:background , mode-line-inactive-bg :foreground ,base))))
+     `(powerline-inactive2 ((,class (:background ,mode-line-inactive-bg :foreground ,base))))
+
 ;;;;; mode-line
-     `(mode-line           ((,class (:foreground ,base :background ,act1 :box (:color ,border :line-width 1)))))
+     `(mode-line           ((,class (:foreground ,base :background ,mode-line-bg :box (:color ,bg1 :line-width 1)))))
      `(mode-line-buffer-id ((,class (:inherit bold :foreground ,func))))
-     `(mode-line-inactive  ((,class (:foreground ,base :background ,bg1  :box (:color ,border :line-width 1)))))
+     `(mode-line-inactive  ((,class (:foreground ,base :background ,mode-line-inactive-bg :box (:color ,bg1 :line-width 1)))))
 
 ;;;;; mu4e
      `(mu4e-attach-number-face ((,class (:foreground ,var))))
@@ -722,12 +727,6 @@ to 'auto, tags may not be properly aligned. "
      `(popup-scroll-bar-background-face ((,class (:background ,bg2))))
      `(popup-scroll-bar-foreground-face ((,class (:background ,act2))))
      `(popup-tip-face ((,class (:background ,ttip-sl :foreground ,base :bold nil :italic nil :underline nil))))
-
-;;;;; powerline
-     `(powerline-active1 ((,class (:background ,act2 :foreground ,base))))
-     `(powerline-active2 ((,class (:background ,act2 :foreground ,base))))
-     `(powerline-inactive1 ((,class (:background ,bg2 :foreground ,base))))
-     `(powerline-inactive2 ((,class (:background ,bg2 :foreground ,base))))
 
 ;;;;; rainbow-delimiters
      `(rainbow-delimiters-depth-1-face ((,class :foreground ,keyword)))
