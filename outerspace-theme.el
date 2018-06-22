@@ -1,5 +1,3 @@
-;; (spaceline-toggle-hud-off)
-;; (spaceline-toggle-buffer-encoding-abbrev-off)
 
 (defmacro dyn-let (varlist fn setfaces setvars)
   (list 'let (append varlist (funcall fn)) setfaces setvars))
@@ -7,11 +5,6 @@
 (defgroup spacemacs-theme nil
   "Spacemacs-theme options."
   :group 'faces)
-
-(defcustom spacemacs-theme-comment-italic nil
-  "Enable italics for comments and also disable background."
-  :type 'boolean
-  :group 'spacemacs-theme)
 
 (defcustom spacemacs-theme-keyword-italic nil
   "Enable italics for keywords."
@@ -57,7 +50,7 @@ to 'auto, tags may not be properly aligned. "
         ;; generic
             (act1          "#19222C")
             (act2          "#5d4d7a")
-            (base          "#b2b2b2")
+            (base          "#A7B5C5")
             (base-dim      "#686868")
             (bg1           "#303B47")
             (bg2           "#3E4C5B")
@@ -71,14 +64,15 @@ to 'auto, tags may not be properly aligned. "
             (cblk-ln       "#827591")
             (cblk-ln-bg    "#373040")
             (cursor        "#e3dedd")
+            (region-bg     "#7A5485")
 
             (const         "#a45bad")
-            (comment       "#2aa1ae")
+            (comment       "#828EAB")
             (comment-light "#2aa1ae")
             (comment-bg    "#292e34")
             (comp          "#c56ec3")
             (err           "#e0211d")
-            (func          "#61afef")
+            (func          "#4E9AEC")
             (head1         "#4f97d7")
             (head1-bg      "#293239")
             (head2         "#2d9574")
@@ -90,16 +84,16 @@ to 'auto, tags may not be properly aligned. "
             (highlight     "#444155")
             (highlight-dim "#3b314d")
             (keyword       "#D44B69")
-            (lnum          "#A1A1A1")
+            (lnum          "#66778B")
             (mat           "#86dc2f")
             (meta          "#9f8766")
-            (str           "#86C272")
+            (str           "#98c379")
             (suc           "#86dc2f")
             (ttip          "#9a9aba")
             (ttip-sl       "#5e5079")
             (ttip-bg       "#34323e")
             (type          "#ce537a")
-            (var           "#7590db")
+            (var           "#e5c07b")
             (war           "#dc752f")
 
             ;; colors
@@ -134,7 +128,7 @@ to 'auto, tags may not be properly aligned. "
      `(eval-sexp-fu-flash ((,class (:background ,suc :foreground ,bg1))))
      `(eval-sexp-fu-flash-error ((,class (:background ,err :foreground ,bg1))))
      `(font-lock-builtin-face ((,class (:foreground ,keyword))))
-     `(font-lock-comment-face ((,class (:foreground ,comment :slant ,'italic))))
+     `(font-lock-comment-face ((,class (:foreground ,meta :slant ,'italic))))
      `(font-lock-constant-face ((,class (:foreground ,const))))
      `(font-lock-doc-face ((,class (:foreground ,meta))))
      `(font-lock-function-name-face ((,class (:foreground ,func :inherit bold))))
@@ -157,7 +151,7 @@ to 'auto, tags may not be properly aligned. "
      `(match ((,class (:background ,highlight :foreground ,mat))))
      `(minibuffer-prompt ((,class (:inherit bold :foreground ,keyword))))
      `(page-break-lines ((,class (:foreground ,act2))))
-     `(region ((,class (:background ,highlight))))
+     `(region ((,class (:background ,region-bg))))
      `(secondary-selection ((,class (:background ,bg3))))
      `(shadow ((,class (:foreground ,base-dim))))
      `(success ((,class (:foreground ,suc))))
@@ -821,7 +815,7 @@ to 'auto, tags may not be properly aligned. "
      `(web-mode-doctype-face ((,class (:inherit ,font-lock-comment-face))))
      `(web-mode-function-name-face ((,class (:inherit ,font-lock-function-name-face))))
      `(web-mode-html-attr-name-face ((,class (:foreground ,func))))
-     `(web-mode-html-attr-value-face ((,class (:foreground ,keyword))))
+     `(web-mode-html-attr-value-face ((,class (:foreground ,str))))
      `(web-mode-html-tag-face ((,class (:foreground ,keyword))))
      `(web-mode-keyword-face ((,class (:foreground ,keyword))))
      `(web-mode-string-face ((,class (:foreground ,str))))
