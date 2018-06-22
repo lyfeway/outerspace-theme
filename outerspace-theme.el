@@ -1,5 +1,5 @@
-(spaceline-toggle-hud-off)
-(spaceline-toggle-buffer-encoding-abbrev-off)
+;; (spaceline-toggle-hud-off)
+;; (spaceline-toggle-buffer-encoding-abbrev-off)
 
 (defmacro dyn-let (varlist fn setfaces setvars)
   (list 'let (append varlist (funcall fn)) setfaces setvars))
@@ -7,11 +7,6 @@
 (defgroup spacemacs-theme nil
   "Spacemacs-theme options."
   :group 'faces)
-
-(defcustom spacemacs-theme-comment-bg t
-  "Use a background for comment lines."
-  :type 'boolean
-  :group 'spacemacs-theme)
 
 (defcustom spacemacs-theme-comment-italic nil
   "Enable italics for comments and also disable background."
@@ -38,6 +33,7 @@ to 'auto, tags may not be properly aligned. "
   :group 'spacemacs-theme)
 
 (defcustom spacemacs-theme-org-highlight nil
+
   "Highlight org headings."
   :type 'boolean
   :group 'spacemacs-theme)
@@ -75,13 +71,14 @@ to 'auto, tags may not be properly aligned. "
             (cblk-ln       "#827591")
             (cblk-ln-bg    "#373040")
             (cursor        "#e3dedd")
+
             (const         "#a45bad")
             (comment       "#2aa1ae")
             (comment-light "#2aa1ae")
             (comment-bg    "#292e34")
             (comp          "#c56ec3")
             (err           "#e0211d")
-            (func          "#bc6ec5")
+            (func          "#61afef")
             (head1         "#4f97d7")
             (head1-bg      "#293239")
             (head2         "#2d9574")
@@ -92,11 +89,11 @@ to 'auto, tags may not be properly aligned. "
             (head4-bg      "#32322c")
             (highlight     "#444155")
             (highlight-dim "#3b314d")
-            (keyword       "#4f97d7")
+            (keyword       "#D44B69")
             (lnum          "#A1A1A1")
             (mat           "#86dc2f")
             (meta          "#9f8766")
-            (str           "#2d9574")
+            (str           "#86C272")
             (suc           "#86dc2f")
             (ttip          "#9a9aba")
             (ttip-sl       "#5e5079")
@@ -137,7 +134,7 @@ to 'auto, tags may not be properly aligned. "
      `(eval-sexp-fu-flash ((,class (:background ,suc :foreground ,bg1))))
      `(eval-sexp-fu-flash-error ((,class (:background ,err :foreground ,bg1))))
      `(font-lock-builtin-face ((,class (:foreground ,keyword))))
-     `(font-lock-comment-face ((,class (:foreground ,(if spacemacs-theme-comment-italic comment-light comment) :background ,(when spacemacs-theme-comment-bg comment-bg) :slant ,(if spacemacs-theme-comment-italic 'italic 'normal)))))
+     `(font-lock-comment-face ((,class (:foreground ,comment :slant ,'italic))))
      `(font-lock-constant-face ((,class (:foreground ,const))))
      `(font-lock-doc-face ((,class (:foreground ,meta))))
      `(font-lock-function-name-face ((,class (:foreground ,func :inherit bold))))
